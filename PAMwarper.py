@@ -5,10 +5,10 @@ folder =  "/home/user/rasters"
 srcProj = 'EPSG:27572'
 dstProj = 'EPSG:2154'
 
-
+targetExt = [".jpg", ".jp2"]
 
 shellFile = folder + os.sep + 'rectify.sh'
-inputFiles = [folder + os.sep + f for f in os.listdir(folder) if f.endswith(".jpg")]
+inputFiles = [folder + os.sep + f for f in os.listdir(folder) if f[-4:] in targetExt]
 
 with open(shellFile, 'w') as sh:
     for inputFile in inputFiles:
