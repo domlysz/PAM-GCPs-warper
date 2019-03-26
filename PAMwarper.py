@@ -37,6 +37,7 @@ def writeShFile(inFolder, outFolder, srcProjDefault, dstProj, targetExt, shellFi
                 basename, ext = os.path.splitext(os.path.basename(inputFile))
                 pam = inputFile + ".aux.xml"
                 if not os.path.exists(pam):
+                    log.warning('Cannot process {} : no PAM file'.format(inputFile))
                     continue
 
                 #QGIS Georeferencer GCPs table
